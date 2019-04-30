@@ -32,7 +32,6 @@ module.exports = {
     }),
     new CopyPlugin([
       {from: `public/css`, to: `css`},
-      {from: `public/fonts`, to: `fonts`},
       {from: `public/img`, to: `img`},
       {from: `public/index.html`, to: `index.html`},
     ]),
