@@ -1,3 +1,4 @@
+const webpack = require(`webpack`);
 const path = require(`path`);
 const HtmlWebpackPlugin = require(`html-webpack-plugin`);
 const CopyPlugin = require(`copy-webpack-plugin`);
@@ -26,7 +27,15 @@ module.exports = {
       }
     ],
   },
+  resolve: {
+    extensions: [`.js`, `.jsx`]
+  },
   plugins: [
+    new webpack.ProvidePlugin({
+      'React': `react`,
+      'PropTypes': `prop-types`,
+      'renderer': `react-test-renderer`
+    }),
     new HtmlWebpackPlugin({
       template: `./public/index.html`
     }),
