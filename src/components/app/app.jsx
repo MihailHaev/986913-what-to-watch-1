@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import HomePage from "../home-page/home-page.jsx";
+import HomePage from "../home-page/home-page";
 
 const App = (props) => {
   const {filmList, onFilmCLick} = props;
