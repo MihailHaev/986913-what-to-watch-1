@@ -1,19 +1,25 @@
-import React from "react";
+import React, {PureComponent} from "react";
 import PropTypes from "prop-types";
 
 import HomePage from "../home-page/home-page";
 
-const App = (props) => {
-  const {filmList, onFilmCLick} = props;
-  return <HomePage
-    filmList = {filmList}
-    onFilmCLick = {onFilmCLick}
-  />;
-};
+class App extends PureComponent {
+  constructor() {
+    super();
+
+    this.state = {};
+  }
+
+  render() {
+    const {filmList} = this.props;
+    return <HomePage
+      filmList = {filmList}
+    />;
+  }
+}
 
 App.propTypes = {
-  filmList: PropTypes.array,
-  onFilmCLick: PropTypes.func,
+  filmList: PropTypes.array.isRequired,
 };
 
 export default App;

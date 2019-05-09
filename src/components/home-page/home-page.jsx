@@ -2,18 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const HomePage = (props) => {
-  const {filmList, onFilmCLick} = props;
-  const filmCards = filmList.map((filmName, id) => {
-    return <article className="small-movie-card catalog__movies-card" key={id}>
-      <button className="small-movie-card__play-btn" type="button">Play</button>
-      <div className="small-movie-card__image">
-        <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
-      </div>
-      <h3 className="small-movie-card__title">
-        <a className="small-movie-card__link" href="movie-page.html" onClick={onFilmCLick}>{filmName}</a>
-      </h3>
-    </article>;
-  });
+  const {filmList} = props;
   return <React.Fragment>
     <section className="movie-card">
       <div className="movie-card__bg">
@@ -108,7 +97,17 @@ const HomePage = (props) => {
         </ul>
 
         <div className="catalog__movies-list">
-          {filmCards}
+          {filmList.map((film, id) => {
+            return <article className="small-movie-card catalog__movies-card" key={id}>
+              <button className="small-movie-card__play-btn" type="button">Play</button>
+              <div className="small-movie-card__image">
+                <img src={film.img} alt={film.title} width="280" height="175" />
+              </div>
+              <h3 className="small-movie-card__title">
+                <a className="small-movie-card__link" href="movie-page.html">{film.title}</a>
+              </h3>
+            </article>;
+          })}
         </div>
 
         <div className="catalog__more">
