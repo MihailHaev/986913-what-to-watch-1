@@ -20,10 +20,9 @@ class ListOfFilms extends PureComponent {
       onTitleClick={onTitleClick}
       key={id}
       id={id}
-      onMouseOver={(evt) => {
-        const idOfFilm = evt.currentTarget.querySelector(`a`).id;
+      onMouseOver={() => {
         this.setState({
-          hoverFilm: idOfFilm
+          hoverFilm: id
         });
       }}
     />);
