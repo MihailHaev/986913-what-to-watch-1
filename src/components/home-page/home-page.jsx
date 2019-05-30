@@ -8,7 +8,7 @@ class HomePage extends PureComponent {
     super();
 
     this.state = {
-      activFilm: 0,
+      activeFilm: 0,
       prevIsActive: false,
     };
   }
@@ -113,21 +113,10 @@ class HomePage extends PureComponent {
               films={filmList.map((film) => {
                 return {
                   title: film.title,
-                  img: film.img
+                  img: film.img,
+                  src: film.src,
                 };
               })}
-              onPrevClick={() => {
-                this.setState({
-                  activPrev: -1,
-                  prevIsActive: true
-                });
-              }}
-              onTitleClick={(evt) => {
-                evt.preventDefault();
-                this.setState({
-                  activFilm: evt.target.id
-                });
-              }}
             />
           </div>
 
