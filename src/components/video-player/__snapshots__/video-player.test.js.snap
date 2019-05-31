@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Video Player correctly renders 1`] = `
+<video
+  height="175"
+  muted={true}
+  poster="img/bohemian-rhapsody.jpg"
+  src=""
+  width="280"
+/>
+`;

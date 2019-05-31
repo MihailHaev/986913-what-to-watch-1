@@ -6,9 +6,11 @@ const mock = {
   films: [{
     title: `Fantastic Beasts: The Crimes of Grindelwald`,
     img: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
+    src: ``,
   }, {
     title: `Bohemian Rhapsody`,
     img: `img/bohemian-rhapsody.jpg`,
+    src: ``,
   }]
 };
 
@@ -17,8 +19,6 @@ it(`Home Page correctly renders`, () => {
   const tree = renderer
     .create(<ListOfFilms
       films={films}
-      onPrevClick={jest.fn()}
-      onTitleClick={jest.fn()}
     />)
     .toJSON();
 

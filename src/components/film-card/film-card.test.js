@@ -6,6 +6,7 @@ const mock = {
   film: {
     title: `Fantastic Beasts: The Crimes of Grindelwald`,
     img: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
+    src: ``,
   }
 };
 
@@ -14,11 +15,11 @@ it(`Film Card correctly renders`, () => {
   const tree = renderer
     .create(<FilmCard
       film={film}
-      onPrevClick={jest.fn()}
-      onTitleClick={jest.fn()}
+      checkActiveCard={jest.fn()}
+      onMouseOut={jest.fn()}
+      onMouseOver={jest.fn()}
       key={0}
       id={0}
-      onMouseOver={jest.fn()}
     />)
     .toJSON();
 

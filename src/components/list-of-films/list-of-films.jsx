@@ -13,20 +13,48 @@ class ListOfFilms extends PureComponent {
   }
 
   render() {
-    const {films, onPrevClick, onTitleClick} = this.props;
+    const {films} = this.props;
     return films.map((film, id) => <FilmCard
       film={film}
-      onPrevClick={onPrevClick}
-      onTitleClick={onTitleClick}
+      checkActiveCard={this.checkActiveCard.bind(this)}
       key={id}
-      id={id}
       onMouseOver={(evt) => {
-        const idOfFilm = evt.currentTarget.querySelector(`a`).id;
-        this.setState({
-          hoverFilm: idOfFilm
-        });
+        if (evt.target.tagName === `VIDEO`) {
+          this.setState({
+            hoverFilm: id
+          });
+        }
       }}
+      onMouseOut={(evt) => {
+        if (evt.target.tagName === `VIDEO`) {
+          this.setState({
+            hoverFilm: -1
+          });
+        }
+      }}
+      id={id}
     />);
+  }
+
+  onMouseOver(id) {
+    if (this.state.hoverFilm !== id) {
+      this.setState({
+        hoverFilm: id
+      });
+    }
+  }
+
+  onMouseOut(id) {
+    if (this.state.hoverFilm === id) {
+      this.setState({
+        hoverFilm: -1,
+      });
+    }
+  }
+
+  checkActiveCard() {
+    const previewingFilm = this.state.hoverFilm;
+    return previewingFilm;
   }
 }
 
@@ -34,9 +62,8 @@ ListOfFilms.propTypes = {
   films: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     img: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
   })),
-  onPrevClick: PropTypes.func.isRequired,
-  onTitleClick: PropTypes.func.isRequired,
 };
 
 export default ListOfFilms;
